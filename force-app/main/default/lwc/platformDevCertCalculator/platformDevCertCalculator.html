@@ -1,0 +1,88 @@
+<template>    
+    <div class="card">
+        <lightning-card title="PD1 Calculator">
+            <!-- Process -->
+            <lightning-button 
+                variant="brand" 
+                label="Calculate" 
+                title="Calculate" 
+                slot="actions" 
+                onclick={calculateScore}
+            ></lightning-button>
+
+            <!-- Input Information -->
+            <div class="slds-p-horizontal_small">
+                <lightning-input 
+                    type="number" 
+                    name="devFundamentals" 
+                    label="Developer Fundamentals: 23%"                     
+                    value={devFundamentalsScore} 
+                    onchange={handleChange}
+                ></lightning-input>
+
+                <lightning-input 
+                    type="number" 
+                    name="processAuto" 
+                    label="Process Automation: 30%" 
+                    value={processAutoScore}
+                    onchange={handleChange}
+                ></lightning-input>
+
+                <lightning-input 
+                    type="number" 
+                    name="userInterface" 
+                    label="User Interface: 25%" 
+                    value={userInterfaceScore}
+                    onchange={handleChange}
+                ></lightning-input>
+
+                <lightning-input 
+                    type="number" 
+                    name="testDebugDeploy" 
+                    label="Testing, Debugging, and Deployment: 22%"
+                    value={testDebugDeployScore}
+                    onchange={handleChange}
+                ></lightning-input>
+            </div>
+
+            <!-- Display Results -->
+            <div slot="footer">
+                <h1 class="slds-text-heading_large slds-text-title_caps resultText">Certification Result</h1>
+                <p class="slds-text-heading_medium">Certification Score: 
+                    <span class="slds-text-color_destructive">{certificationScore}%</span>
+                </p>
+                <div>
+                    <h1 class="slds-text-heading_large">Previous Attempt</h1>
+                    <lightning-tabset>
+                        <div for:each={attemptHistory} for:item="attempt" key={attempt.Id}>                        
+                            <lightning-tab title="Show" label={attempt.Id}>
+                                <c-score-information
+                                    score = {attempt.Score}
+                                    attempt-id = {attempt.Id}
+                                    number-of-questions = {numberOfQuestions}
+                                    ondeleteattempt={deleteAttemptHandler}
+                                ></c-score-information>
+                            </lightning-tab>
+                        </div>
+                    </lightning-tabset>
+                </div>
+                <template lwc:if={showResources}>
+                    <div class="slds-box slds-m-top_medium">
+                        <ul class="slds-text-align_left slds-text-heading_small slds-list_dotted">
+                            <li class="resourceLi ">Resources:</li>
+                            <li><a href="https://trailhead.salesforce.com/en/credentials/platformdeveloperi">PD1 Exam Guide</a></li>
+                            <li><a href="https://focusonforce.com/">Focus On Force</a></li>
+                            <li><a href="https://www.salesforcementor.com/">Salesforce Mentor</a></li>
+                        </ul>
+                    </div>
+                </template>
+                <template lwc:elseif={showGoodJob}>
+                    <p>You are ready for your first developer job!</p>
+                </template>
+                <template lwc:else>
+                    <p>Press calculate to see your score.</p>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
