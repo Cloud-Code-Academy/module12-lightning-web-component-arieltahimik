@@ -1,0 +1,30 @@
+:host {
+    --slds-c-card-color-background: #F5F5F5;
+}
+
+.card {
+    margin: auto;
+    max-width: 80%;
+}
+
+.resultText {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.scoreText {
+    color: red;
+    font-size: 18px;
+}
+
+.resourceList {
+    text-align: left;
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+.resourceLi {
+    font-weight:500;
+    font-size: 1.2em;
+}
