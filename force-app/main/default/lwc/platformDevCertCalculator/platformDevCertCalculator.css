@@ -1,5 +1,10 @@
+:host {
+    --slds-c-card-color-background: #F5F5F5;
+}
+
 .card {
-    width: 50%;
+    margin: auto;
+    max-width: 80%;
 }
 
 .resultText {
@@ -20,6 +25,6 @@
 }
 
 .resourceLi {
-    font-weight: 600;
-    font-size: large;
+    font-weight:500;
+    font-size: 1.2em;
 }

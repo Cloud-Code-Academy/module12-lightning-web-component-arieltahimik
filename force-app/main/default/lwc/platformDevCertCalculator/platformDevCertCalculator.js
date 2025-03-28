@@ -97,7 +97,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
         if (this.highestId < 0) {
             this.highestId = 0;
         }
-        console.log('TypeOf highestId:', typeof this.highestId, this.highestId);
+        //console.log('TypeOf highestId:', typeof this.highestId, this.highestId);
         //console.log('Score:', Score, Math.round(Score));
 
         // Solution without 'track'
@@ -112,7 +112,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
     }
     
     deleteAttemptHandler(event) {
-        console.log('this is called from parent to handle delete', event.detail);
+        //console.log('this is called from parent to handle delete', event.detail);
         let attemptId = event.detail;
         this.attemptHistory = this.attemptHistory.filter(attempt => attempt.Id != attemptId);
         //console.log('New attempt history ' + this.attemptHistory);
